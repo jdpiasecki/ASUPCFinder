@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ASU PC Finder</title>
+
+	<meta name="viewport" 
+		  content="width=device-width, user-scalable=no, 
+		  initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<!-- This is not a secure content policy, should be locked down for prod -->
+	<meta http-equiv="Content-Security-Policy" 
+		content="default-src 'self' data: gap: 'unsafe-inline' 
+					https://*.gstatic.com 
+					https://*.phonegap.com
+					https://*.googleapis.com; 
+				style-src 'self' 'unsafe-inline'
+					https://fonts.googleapis.com; 
+				script-src  'self' 'unsafe-inline' 'unsafe-eval' 
+					https://*.phonegap.com 
+					http://mysqljs.com
+					https://*.googleapis.com;
+					http://*.socket.io.js					
+				media-src *" />	
+	
+
+    <!-- NOTICE: ADDED googleapis and gstatic URL to Content Security Policy -->
+    <!-- https://developers.google.com/web/fundamentals/security/csp/		 -->
+    <!-- https://content-security-policy.com/                                -->
+    <!-- for PhoneGap/Cordova, see whitelist info in config.xml 			 -->
+
+		           
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+
+</head>
+<body> <!-- no onload - see index.js for "ondeviceready" event listener -->
+
+    <div id="header"><h1>ASU PC Finder</h1></div>
+
+    <div id = "dropdown">
+    <select id = "campus" onchange="campusChange(this)">
+  		<option value="selectCampus">Select Campus</option>
+  		<option value="tempe">Tempe</option>
+  		<option value="downtown">Downtown</option>
+  		<option value="west">West</option>
+  		<option value="poly">Polytechnic</option>
+		</select>
+
+	<div id = "design">
+	</div>
+	
+    <select id = "location">
+ 	</select>
+	</div>
+
+	<div id = "design">
+	</div>
+
+	<div id = "availability">
+		<button type="button" id="btnAvailability" disabled="true" onclick="checkavailability()">Check Availability</button>
+		<button type="button" onclick="clearValues()">Clear</button>
+		<label id="currentAvailability">   </label>
+	</div>
+
+	<div id = "design">
+	</div>
+
+	<div id = "showonmap">
+		<button type="button" onclick='showMap()' >Show on Map</button>
+	</div>
+
+	<div id = "design">
+	</div>
+
+    <div id="mapDiv"></div> <!-- this div is where the google map will go -->
+
+	<script type="text/javascript" src="cordova.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+	<script type="text/javascript" src="./js/mysql.js"></script>
+
+</body>
+</html>
