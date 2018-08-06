@@ -1,2 +1,2 @@
 # ASUPCFinder
-a mobile app just to find the location of a library at ASU and the availability of computers
+App created with Sublime and displayed with PhoneGap that demonstrates the availability of computers throughout all ASU computer facilities.  The user will be able to select any of the Arizona State University Campuses from the main menu.  Next, the user will select which library they are interested in visiting.  The app will display the number of computers currently available to use at that particular library
